@@ -8,7 +8,7 @@ public class Magic8BallApp {
 		Scanner keyboard = new Scanner(System.in);
 		String userQuestion, userAnswer;
 
-		int indexCounter=0;
+
 		System.out.println("MAGIC 8 BALL APPLICATION");
 
 		System.out
@@ -21,13 +21,12 @@ public class Magic8BallApp {
 			
 			if (!userQuestion.equals("history")) {
 				
-				userAnswer = myMagic.shakeIt(userQuestion, indexCounter);
+				userAnswer = myMagic.shakeIt(userQuestion);
 				System.out.println(userAnswer);
 				
 				System.out.print("\nAnother question? ");
 				userQuestion = keyboard.nextLine().toLowerCase();
-				
-				indexCounter++;
+			
 			}
 
 		} while (!userQuestion.equals("history"));
