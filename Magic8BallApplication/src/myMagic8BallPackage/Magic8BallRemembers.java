@@ -8,6 +8,7 @@ public class Magic8BallRemembers extends Magic8Ball {
 	private ArrayList<String> userAnswers;
 	
 	public Magic8BallRemembers(){
+		 super();
 		 this.userQuestions = new ArrayList<String>();
 		 this.userAnswers = new ArrayList<String>();
 	}

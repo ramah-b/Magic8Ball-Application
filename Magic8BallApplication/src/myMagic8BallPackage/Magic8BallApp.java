@@ -13,8 +13,7 @@ public class Magic8BallApp {
 
 		System.out
 				.print("Ask me any question. When done, you can enter 'history' to print out all questions and answers: ");
-		userQuestion = keyboard.nextLine();
-		userQuestion = userQuestion.toLowerCase();
+		userQuestion = keyboard.nextLine().toLowerCase();
 		
 		Magic8BallRemembers myMagic = new Magic8BallRemembers();
 
@@ -26,8 +25,7 @@ public class Magic8BallApp {
 				System.out.println(userAnswer);
 				
 				System.out.print("\nAnother question? ");
-				userQuestion = keyboard.nextLine();
-				userQuestion = userQuestion.toLowerCase();
+				userQuestion = keyboard.nextLine().toLowerCase();
 				
 				indexCounter++;
 			}
