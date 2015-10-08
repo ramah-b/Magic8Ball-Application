@@ -3,25 +3,39 @@ package myMagic8BallPackage;
 import java.util.Scanner;
 
 public class Magic8BallApp {
-	public static void main(String[] args){
-		
+	public static void main(String[] args) {
+
 		Scanner keyboard = new Scanner(System.in);
-		String userQuestion;
-		
+		String userQuestion, userAnswer;
+
+		int indexCounter=0;
 		System.out.println("MAGIC 8 BALL APPLICATION");
-		
-	
-		System.out.print("Ask me any question. if you want to quit, enter 'q': ");
+
+		System.out
+				.print("Ask me any question. When done, you can enter 'history' to print out all questions and answers: ");
 		userQuestion = keyboard.nextLine();
-		Magic8Ball myMagic = new Magic8Ball();
+		userQuestion = userQuestion.toLowerCase();
 		
-		while (!userQuestion.equals("q") && !userQuestion.equals("Q")){
+		Magic8BallRemembers myMagic = new Magic8BallRemembers();
+
+		do {
 			
-			System.out.println(myMagic.shakeIt());
-			System.out.print("\nAnother question? ");
-			userQuestion = keyboard.nextLine();
-		}
-		System.out.println("\nYou have quitted. Nice Game!!");
+			if (!userQuestion.equals("history")) {
+				
+				userAnswer = myMagic.shakeIt(userQuestion, indexCounter);
+				System.out.println(userAnswer);
+				
+				System.out.print("\nAnother question? ");
+				userQuestion = keyboard.nextLine();
+				userQuestion = userQuestion.toLowerCase();
+				
+				indexCounter++;
+			}
+
+		} while (!userQuestion.equals("history"));
+		
+		System.out.println("\nYou have quitted. Here is your questions and answers history:");
+		myMagic.printHistory();
 		keyboard.close();
 	}
 
